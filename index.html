@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+		/>
+
+		<script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope&display=swap" rel="stylesheet">
+
+    <script
+      src="https://kit.fontawesome.com/7c8801c017.js"
+			crossorigin="anonymous">
+			</script>
+
+    <link href="src/styles.css" rel="stylesheet" />
+  </head>
+ 
+  <body>
+			<div class="container">
+					<div class="main-wrapper">
+						<form id="searchForm">
+							<input
+								type="text"
+								placeholder="Enter a City"
+								autocomplete="off"
+								autofocus="on"
+								id="search-text-input"
+							/>
+							<button
+                    class="btn btn-outline-secondary"
+                    type="button"
+                    id="search-button">
+                    Search
+									</button>
+						</form>
+						<button class="location-button"><i class="fa-sharp fa-solid fa-location-dot" style="color: #039995;"></i></button>
+					
+
+						<div class="col-sm-6">
+								<div class="current-wrapper-col">
+									<div class="current-icon">
+										<img src="icons/partly-cloudy-day.svg" width="300px" />
+										<h1 id="city-name">Cebu City</h1>
+										<h3 id="weatherDescription">Partly Cloudy</h3>
+										<h2 id="current-temp">27°</h2>
+										<button type="button" class="btn-celsius active">
+											<a href="#" id="celsius-link">
+												°C
+											</a>
+										</button>
+										<button
+											type="button"
+											class="btn-fahrenheit">
+											<a href="#" id="fahrenheit-link">
+												°F
+											</a>
+										</button>
+										<div class="row">
+											<div class="col">
+												<div class="todays-info-box">
+													<div class="date-time">
+													<span id="current-date">March 24,2023</span>
+													<span id="current-day">Thursday</span>
+													<span id="current-time">12:14 am</span>
+												</div>
+											</div>
+											<div class="col">
+												<div class="Temp-info-box">
+													<div class="temp-info">
+														<span id="Precip">Precipitation: 10%</span>
+														<span id="Humid">Humidity: 66%</span>
+														<span id="Wind">Wind: 23km/h</span>
+													</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-6">
+									<div class="daily-wrapper-col">
+											<div class="list">
+													<div class="weather-icons">
+														<img src="icons/partly-cloudy-day.svg" width="70px" />
+													</div>
+													<div class="content">
+													<h4 class="date">
+														<span class="dow-date"> Mon </span>
+														<span class="sub-date"> 3 | 13 </span>
+													</h4>
+													<p>Partly cloudy</p>
+													<div class="daily-temp">
+														<span class="high"> 31°</span>
+														<span class="low"> | 24° </span>
+													</div>
+												</div>
+											</div>
+											<div class="list">
+													<div class="weather-icons">
+														<img src="icons/partly-cloudy-day.svg" width="70px" />
+													</div>
+													<div class="content">
+														<h4 class="date">
+															<span class="dow-date"> Tue </span>
+															<span class="sub-date"> 3 | 14 </span>
+														</h4>
+														<p>Mostly cloudy</p>
+														<div class="daily-temp">
+															<span class="high"> 30°</span>
+															<span class="low"> | 24° </span>
+														</div>
+													</div>
+												</div>
+												<div class="list">
+														<div class="weather-icons">
+															<img src="icons/partly-cloudy-day.svg" width="70px" />
+														</div>
+														<div class="content">
+															<h4 class="date">
+																<span class="dow-date"> Wed </span>
+																<span class="sub-date"> 3 | 15 </span>
+															</h4>
+															<p>Mostly cloudy</p>
+															<div class="daily-temp">
+																<span class="high"> 30°</span>
+																<span class="low"> | 24° </span>
+															</div>
+														</div>
+													</div>
+													<div class="list">
+													 <div class="weather-icons">
+															<img src="icons/clear-day.svg" width="70px" />
+														</div>
+														<div class="content">
+															<h4 class="date">
+																<span class="dow-date"> Thu </span>
+																<span class="sub-date"> 3 | 16 </span>
+															</h4>
+															<p>Mostly Sunny</p>
+															<div class="daily-temp">
+																<span class="high"> 29°</span>
+																<span class="low"> | 24° </span>
+															</div>
+														</div>
+													</div>
+													<div class="list">
+															<div class="weather-icons">
+																 <img src="icons/clear-day.svg" width="70px" />
+															 </div>
+															 <div class="content">
+																 <h4 class="date">
+																	 <span class="dow-date"> Fri </span>
+																	 <span class="sub-date"> 3 | 17 </span>
+																 </h4>
+																 <p>Mostly Sunny</p>
+																 <div class="daily-temp">
+																	 <span class="high"> 30°</span>
+																	 <span class="low"> | 24° </span>
+																 </div>
+															 </div>
+														 </div>
+								<script src="src/index.js"></script>
+							</div>
+						</div>
+					</body>
+				</html>
+				
+
