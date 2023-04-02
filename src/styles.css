@@ -310,7 +310,18 @@ p {
   font-size: 18px;
 }
 
-.coded by {
-  color: aliceblue;
+a {
+  color: whitesmoke;
+}
+
+.coder {
+  color: #eafc88;
+}
+
+footer {
   text-align: center;
+  margin-top: -230px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
