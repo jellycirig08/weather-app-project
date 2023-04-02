@@ -309,3 +309,8 @@ p {
   font-weight: bolder;
   font-size: 18px;
 }
+
+.coded by {
+  color: aliceblue;
+  text-align: center;
+}
