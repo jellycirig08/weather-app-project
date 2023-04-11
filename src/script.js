@@ -92,10 +92,8 @@ function getLocationWeather(latitude, longitude) {
   axios
     .get(API_URL)
     .then((response) => {
-      let data = response.data;
-      cityNameElement.innerHTML = `${data.name}, ${data.sys.country}`;
-      currentTemp.innerHTML = `${Math.round(data.main.temp)}°`;
-      updateDateTime();
+      const data = response.data;
+      updateWeatherInfo(data);
     })
     .catch((error) => {
       console.log(error);
@@ -118,6 +116,12 @@ function getLocation() {
     alert("Geolocation is not supported by this browser.");
   }
 }
+
+let locationButton = document.querySelector(".location-button");
+
+locationButton.addEventListener("click", () => {
+  getLocation();
+});
 
 searchTextInput.addEventListener("keyup", (event) => {
   if (event.keyCode === 13) {
@@ -165,9 +169,3 @@ celsiusButton.addEventListener("click", convertCelsius);
 
 let fahrenheitButton = document.querySelector("#fahrenheit-link");
 fahrenheitButton.addEventListener("click", convertFahrenheit);
-
-let locationButton = document.querySelector(".location-button");
-
-locationButton.addEventListener("click", () => {
-  getLocation();
-});
