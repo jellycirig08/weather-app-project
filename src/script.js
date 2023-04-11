@@ -72,7 +72,7 @@ function updateWeatherInfo(data) {
   const weatherDescription = data.weather[0].description;
   const temperature = Math.round(data.main.temp);
   const humidity = data.main.humidity;
-  const windSpeed = data.wind.speed;
+  const windSpeed = Math.round(data.wind.speed);
   const weatherIcon = data.weather[0].icon;
 
   document.getElementById("city").textContent = `${city}, ${country}`;
