@@ -162,21 +162,13 @@ function handleFormSubmit(event) {
   const city = searchTextInput.value;
   getWeatherData(city);
   searchForm.reset();
+  searchTextInput.focus();
 }
 
 searchForm.addEventListener("submit", handleFormSubmit);
 
-function handleNewSearch(event) {
-  event.preventDefault();
-  const city = searchTextInput.value;
-  getWeatherData(city);
-  searchForm.reset();
-}
-
-searchButton.addEventListener("click", handleNewSearch);
-
 searchTextInput.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
-    handleNewSearch(event);
+    handleFormSubmit(event);
   }
 });
