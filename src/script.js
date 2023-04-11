@@ -53,19 +53,38 @@ function updateDateTime() {
 
 updateDateTime();
 
-function getCityWeather(city) {
-  let API_URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`;
+function getWeatherData(city) {
+  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`;
   axios
-    .get(API_URL)
+    .get(apiUrl)
     .then((response) => {
-      let data = response.data;
-      cityNameElement.innerHTML = `${data.name}, ${data.sys.country}`;
-      currentTemp.innerHTML = `${Math.round(data.main.temp)}°`;
-      updateDateTime();
+      const data = response.data;
+      updateWeatherInfo(data);
     })
     .catch((error) => {
       console.log(error);
     });
+}
+
+function updateWeatherInfo(data) {
+  const city = data.name;
+  const country = data.sys.country;
+  const weatherDescription = data.weather[0].description;
+  const temperature = Math.round(data.main.temp);
+  const humidity = data.main.humidity;
+  const windSpeed = data.wind.speed;
+  const weatherIcon = data.weather[0].icon;
+
+  document.getElementById("city").textContent = `${city}, ${country}`;
+  document.getElementById("weatherDescription").textContent =
+    weatherDescription;
+  document.getElementById("current-temp").textContent = `${temperature}°`;
+  document.getElementById("Humid").textContent = `Humidity: ${humidity}%`;
+  document.getElementById("Wind").textContent = `Wind: ${windSpeed}km/h`;
+
+  const iconUrl = `icons/${weatherIcon}.svg`;
+  const weatherIconElement = document.getElementById("weather-icon");
+  weatherIconElement.setAttribute("src", iconUrl);
 }
 
 function getLocationWeather(latitude, longitude) {
