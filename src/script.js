@@ -123,19 +123,6 @@ locationButton.addEventListener("click", () => {
   getLocation();
 });
 
-searchTextInput.addEventListener("keyup", (event) => {
-  if (event.keyCode === 13) {
-    let city = searchTextInput.value;
-    getCityWeather(city);
-    searchTextInput.value = "";
-  }
-});
-
-searchButton.addEventListener("click", () => {
-  let city = searchTextInput.value;
-  getCityWeather(city);
-  searchTextInput.value = "";
-});
 function convertCelsius(event) {
   let city = cityNameElement.innerHTML.split(",")[0];
   let API_URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`;
@@ -169,3 +156,27 @@ celsiusButton.addEventListener("click", convertCelsius);
 
 let fahrenheitButton = document.querySelector("#fahrenheit-link");
 fahrenheitButton.addEventListener("click", convertFahrenheit);
+
+function handleFormSubmit(event) {
+  event.preventDefault();
+  const city = searchTextInput.value;
+  getWeatherData(city);
+  searchForm.reset();
+}
+
+searchForm.addEventListener("submit", handleFormSubmit);
+
+function handleNewSearch(event) {
+  event.preventDefault();
+  const city = searchTextInput.value;
+  getWeatherData(city);
+  searchForm.reset();
+}
+
+searchButton.addEventListener("click", handleNewSearch);
+
+searchTextInput.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    handleNewSearch(event);
+  }
+});
