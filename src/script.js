@@ -156,12 +156,8 @@ function displayFahrenheitTemperature(event) {
   celsiusLink.classList.remove("active");
   fahrenheitLink.classList.add("active");
   let temperatureElement = document.getElementById("current-temp");
-  let celsiusTemperatureValue = parseFloat(
-    temperatureElement.textContent.replace("°C", "")
-  );
-  let fahrenheitTemperature = (celsiusTemperatureValue * 9) / 5 + 32;
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
   temperatureElement.innerHTML = `${Math.round(fahrenheitTemperature)}°`;
-  celsiusTemperature = celsiusTemperatureValue;
   updateWeatherInfo(currentWeatherData, "fahrenheit");
 }
 
@@ -170,11 +166,7 @@ function displayCelsiusTemperature(event) {
   celsiusLink.classList.add("active");
   fahrenheitLink.classList.remove("active");
   let temperatureElement = document.getElementById("current-temp");
-  let fahrenheitTemperatureValue = parseFloat(
-    temperatureElement.textContent.replace("°F", "")
-  );
-  let celsiusTemperature = ((fahrenheitTemperatureValue - 32) * 5) / 9;
-  temperatureElement.innerHTML = `${Math.round(celsiusTemperature)}°`;
+  temperatureElement.innerHTML = `${Math.round(celsiusTemperature)}°C`;
   updateWeatherInfo(currentWeatherData, "celsius");
 }
 
