@@ -66,19 +66,31 @@ function getWeatherData(city) {
     });
 }
 
-function updateWeatherInfo(data) {
+function updateWeatherInfo(data, temperatureUnit) {
+  if (!data) {
+    return;
+  }
+
   const city = data.name;
   const country = data.sys.country;
   const weatherDescription = data.weather[0].description;
   const temperature = Math.round(data.main.temp);
   const humidity = data.main.humidity;
-  const windSpeed = Math.round(data.wind.speed);
+  const windSpeed = data.wind.speed;
   const weatherIcon = data.weather[0].icon;
 
   document.getElementById("city").textContent = `${city}, ${country}`;
   document.getElementById("weatherDescription").textContent =
     weatherDescription;
-  document.getElementById("current-temp").textContent = `${temperature}°`;
+
+  let temperatureElement = document.getElementById("current-temp");
+  if (temperatureUnit === "celsius") {
+    temperatureElement.innerHTML = `${temperature}°`;
+  } else {
+    let fahrenheitTemperature = (temperature * 9) / 5 + 32;
+    temperatureElement.innerHTML = `${Math.round(fahrenheitTemperature)}°`;
+  }
+
   document.getElementById("Humid").textContent = `Humidity: ${humidity}%`;
   document.getElementById("Wind").textContent = `Wind: ${windSpeed}km/h`;
 
