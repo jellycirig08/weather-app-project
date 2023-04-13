@@ -1,3 +1,4 @@
+let searchForm = document.getElementById("searchForm");
 let searchButton = document.querySelector("#search-button");
 let searchTextInput = document.querySelector("#search-text-input");
 let cityNameElement = document.querySelector("#city-name");
