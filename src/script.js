@@ -174,7 +174,6 @@ function handleFormSubmit(event) {
   event.preventDefault();
   const city = searchTextInput.value;
   getWeatherData(city);
-  searchForm.reset();
   searchTextInput.focus();
 }
 
