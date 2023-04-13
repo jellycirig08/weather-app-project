@@ -122,39 +122,41 @@ let locationButton = document.querySelector(".location-button");
 locationButton.removeEventListener("click", getLocation);
 locationButton.addEventListener("click", getLocation);
 
-function convertCelsius(event) {
-  let city = cityNameElement.innerHTML.split(",")[0];
-  let API_URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`;
-  axios
-    .get(API_URL)
-    .then((response) => {
-      let data = response.data;
-      currentTemp.innerHTML = `${Math.round(data.main.temp)}°`;
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+let celsiusLink = document.getElementById("celsius-link");
+let fahrenheitLink = document.getElementById("fahrenheit-link");
+
+celsiusLink.removeEventListener("click", displayCelsiusTemperature);
+fahrenheitLink.removeEventListener("click", displayFahrenheitTemperature);
+
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let temperatureElement = document.getElementById("current-temp");
+  let celsiusTemperatureValue = parseFloat(
+    temperatureElement.textContent.replace("°C", "")
+  );
+  let fahrenheitTemperature = (celsiusTemperatureValue * 9) / 5 + 32;
+  temperatureElement.innerHTML = `${Math.round(fahrenheitTemperature)}°`;
+  celsiusTemperature = celsiusTemperatureValue;
+  updateWeatherInfo(currentWeatherData, "fahrenheit");
 }
 
-function convertFahrenheit(event) {
-  let city = cityNameElement.innerHTML.split(",")[0];
-  let API_URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=imperial`;
-  axios
-    .get(API_URL)
-    .then((response) => {
-      let data = response.data;
-      currentTemp.innerHTML = `${Math.round(data.main.temp)}°`;
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  let temperatureElement = document.getElementById("current-temp");
+  let fahrenheitTemperatureValue = parseFloat(
+    temperatureElement.textContent.replace("°F", "")
+  );
+  let celsiusTemperature = ((fahrenheitTemperatureValue - 32) * 5) / 9;
+  temperatureElement.innerHTML = `${Math.round(celsiusTemperature)}°`;
+  updateWeatherInfo(currentWeatherData, "celsius");
 }
-
-let celsiusButton = document.querySelector("#celsius-link");
-celsiusButton.addEventListener("click", convertCelsius);
-
-let fahrenheitButton = document.querySelector("#fahrenheit-link");
-fahrenheitButton.addEventListener("click", convertFahrenheit);
 
 function handleFormSubmit(event) {
   event.preventDefault();
