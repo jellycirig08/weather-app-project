@@ -104,12 +104,15 @@ function updateWeatherInfo(data, temperatureUnit) {
   weatherIconElement.setAttribute("src", iconUrl);
 }
 
+let latitude, longitude;
+
 function getLocationWeather(latitude, longitude) {
   let API_URL = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`;
   axios
     .get(API_URL)
     .then((response) => {
       const data = response.data;
+      currentWeatherData = data;
       updateWeatherInfo(data);
     })
     .catch((error) => {
@@ -121,8 +124,8 @@ function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
       (position) => {
-        let latitude = position.coords.latitude;
-        let longitude = position.coords.longitude;
+        latitude = position.coords.latitude;
+        longitude = position.coords.longitude;
         getLocationWeather(latitude, longitude);
       },
       (error) => {
