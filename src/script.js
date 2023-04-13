@@ -119,9 +119,8 @@ function getLocation() {
 
 let locationButton = document.querySelector(".location-button");
 
-locationButton.addEventListener("click", () => {
-  getLocation();
-});
+locationButton.removeEventListener("click", getLocation);
+locationButton.addEventListener("click", getLocation);
 
 function convertCelsius(event) {
   let city = cityNameElement.innerHTML.split(",")[0];
