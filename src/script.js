@@ -63,6 +63,7 @@ function getWeatherData(city) {
     .get(apiUrl)
     .then((response) => {
       const data = response.data;
+      currentWeatherData = data;
       updateWeatherInfo(data);
     })
     .catch((error) => {
