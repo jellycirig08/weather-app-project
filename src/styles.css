@@ -224,6 +224,11 @@ h4 {
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
+.btn-celsius a,
+.btn-fahrenheit a {
+  text-decoration: none;
+}
+
 .btn-celsius:hover {
   background: #ace0f9;
 }
