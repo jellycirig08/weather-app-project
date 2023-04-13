@@ -227,14 +227,15 @@ h4 {
 .btn-celsius a,
 .btn-fahrenheit a {
   text-decoration: none;
+  cursor: default;
 }
 
-.btn-celsius:hover {
-  background: #ace0f9;
-}
-
-.btn-fahrenheit:hover {
-  background: #ace0f9;
+.btn-celsius .active,
+.btn-fahrenheit .active {
+  background-color: #eafc88;
+  color: #000000;
+  display: inline-block;
+  cursor: default;
 }
 
 .temp-info {
