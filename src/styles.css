@@ -209,16 +209,6 @@ h4 {
 .btn-celsius {
   width: 50px;
   height: 40px;
-  margin-left: 350px;
-  background: #dbecf4;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-
-  border-radius: 8px;
-}
-
-.btn-celsius {
-  width: 50px;
-  height: 40px;
   background: #dbecf4;
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 8px;
