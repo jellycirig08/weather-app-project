@@ -1,5 +1,5 @@
 let searchForm = document.getElementById("searchForm");
-let searchButton = document.querySelector("#search-button");
+let searchButton = document.getElementById("#search-button");
 let searchTextInput = document.querySelector("#search-text-input");
 let cityNameElement = document.querySelector("#city-name");
 let currentTemp = document.querySelector("#current-temp");
