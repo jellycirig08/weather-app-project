@@ -1,11 +1,12 @@
 let searchForm = document.getElementById("searchForm");
 let searchButton = document.getElementById("#search-button");
 let searchTextInput = document.querySelector("#search-text-input");
-let cityNameElement = document.querySelector("#city-name");
 let currentTemp = document.querySelector("#current-temp");
 let currentDate = document.getElementById("current-date");
 let currentDay = document.getElementById("current-day");
 let currentTime = document.getElementById("current-time");
+let cityNameElement = document.querySelector("#city");
+cityNameElement.textContent = "Cebu City";
 
 let API_KEY = "ce5e83cc51efd91e9de83c42568b0bdb";
 
@@ -56,6 +57,8 @@ updateDateTime();
 
 let currentWeatherData;
 let celsiusTemperature;
+
+getWeatherData("Cebu City");
 
 function getWeatherData(city) {
   const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`;
