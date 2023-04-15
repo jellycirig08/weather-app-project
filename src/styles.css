@@ -121,6 +121,7 @@ body {
 }
 
 #current-icon {
+  position: absolute;
   margin-top: 10px;
   padding-left: 5px;
 }
@@ -143,7 +144,7 @@ body {
   width: 250px;
   height: 120px;
   background: rgba(255, 255, 255, 0.3);
-  margin-top: 130px;
+  margin-top: 30px;
   margin-left: 230px;
   display: flex;
   justify-content: space-between;
@@ -184,6 +185,7 @@ h1 {
 }
 
 h2 {
+  position: absolute;
   margin-top: -200px;
   margin-left: 355px;
   font-size: 80px;
@@ -194,7 +196,7 @@ h2 {
 
 h3 {
   margin-top: 210px;
-  margin-left: 90px;
+  margin-left: 60px;
   font-size: 20px;
   font-weight: bolder;
   color: #dbecf4;
@@ -214,7 +216,8 @@ h4 {
   border-radius: 8px;
   display: inline-block;
   float: right;
-  margin-right: 60px;
+  margin-right: 110px;
+  margin-top: -110px;
 }
 
 .btn-fahrenheit {
@@ -225,7 +228,8 @@ h4 {
   border-radius: 8px;
   display: inline-block;
   float: right;
-  margin-right: 5px;
+  margin-right: 50px;
+  margin-top: -110px;
 }
 
 .btn-celsius.active,
@@ -235,7 +239,7 @@ h4 {
 }
 
 .temp-info {
-  margin-top: 90px;
+  margin-top: -190px;
   margin-left: -50px;
   display: flex;
   flex-direction: column;
