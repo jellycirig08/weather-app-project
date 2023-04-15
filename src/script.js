@@ -172,7 +172,6 @@ function displayCelsiusTemperature(event) {
 
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
-}
 
 function handleFormSubmit(event) {
   event.preventDefault();
