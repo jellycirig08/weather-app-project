@@ -142,19 +142,17 @@ let locationButton = document.querySelector(".location-button");
 locationButton.removeEventListener("click", getLocation);
 locationButton.addEventListener("click", getLocation);
 
+let celsiusButton = document.querySelector(".btn-celsius");
+let fahrenheitButton = document.querySelector(".btn-fahrenheit");
 let celsiusLink = document.getElementById("celsius-link");
 let fahrenheitLink = document.getElementById("fahrenheit-link");
-
-celsiusLink.removeEventListener("click", displayCelsiusTemperature);
-fahrenheitLink.removeEventListener("click", displayFahrenheitTemperature);
-
-celsiusLink.addEventListener("click", displayCelsiusTemperature);
-fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
 function displayFahrenheitTemperature(event) {
   event.preventDefault();
   celsiusLink.classList.remove("active");
   fahrenheitLink.classList.add("active");
+  fahrenheitButton.classList.add("active");
+  celsiusButton.classList.remove("active");
   let temperatureElement = document.getElementById("current-temp");
   let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
   temperatureElement.innerHTML = `${Math.round(fahrenheitTemperature)}°`;
@@ -165,9 +163,15 @@ function displayCelsiusTemperature(event) {
   event.preventDefault();
   celsiusLink.classList.add("active");
   fahrenheitLink.classList.remove("active");
+  celsiusButton.classList.add("active");
+  fahrenheitButton.classList.remove("active");
   let temperatureElement = document.getElementById("current-temp");
   temperatureElement.innerHTML = `${Math.round(celsiusTemperature)}°C`;
   updateWeatherInfo(currentWeatherData, "celsius");
+}
+
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 }
 
 function handleFormSubmit(event) {
