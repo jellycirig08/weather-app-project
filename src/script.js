@@ -58,7 +58,7 @@ updateDateTime();
 let currentWeatherData;
 let celsiusTemperature;
 
-getWeatherData("Cebu City");
+let forecastDiv = document.getElementById("forecast");
 
 function getWeatherData(city) {
   const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`;
@@ -68,11 +68,61 @@ function getWeatherData(city) {
       const data = response.data;
       currentWeatherData = data;
       updateWeatherInfo(data);
+
+      const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${API_KEY}`;
+      return axios.get(forecastUrl);
     })
-    .catch((error) => {
-      console.log(error);
+    .then((response) => {
+      let forecastList = response.data.list;
+      let forecastHTML = "";
+
+      let tomorrowIndex = forecastList.findIndex((forecastData) => {
+        let date = new Date(forecastData.dt * 1000);
+        return date.getDate() !== new Date().getDate();
+      });
+
+      for (let i = tomorrowIndex; i < forecastList.length; i += 8) {
+        let forecastData = forecastList[i];
+        let temperature = forecastData.main.temp;
+        let description = forecastData.weather[0].description;
+        let date = new Date(forecastData.dt * 1000).toLocaleDateString(
+          "en-US",
+          {
+            weekday: "long",
+            day: "numeric",
+            month: "2-digit",
+          }
+        );
+        let high = Math.round((temperature * 9) / 5 + 32) + "°F";
+        let low = Math.round(temperature) + "°C";
+
+        forecastHTML += `
+          <div class="list">
+            <div class="weather-icons">
+              <img src="icons/${forecastData.weather[0].icon}.svg" id="weather-icon" width="70px" />
+            </div>
+            <div class="content">
+              <h4 class="date">
+                <span class="dow-date">${date}</span>
+              </h4>
+              <p>${description}</p>
+              <div class="daily-temp-wrapper">
+                <div class="daily-temp">
+                  <span class="high">${high}</span>
+                  <span class="low">| ${low}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      let dailyWrapper = document.querySelector(".daily-wrapper-col");
+      dailyWrapper.innerHTML = forecastHTML; // replace the content of .daily-wrapper-col with forecastHTML
     });
 }
+
+getWeatherData("Cebu City");
 
 function updateWeatherInfo(data, temperatureUnit) {
   if (!data) {
