@@ -244,6 +244,7 @@ let celsiusButton = document.querySelector(".btn-celsius");
 let fahrenheitButton = document.querySelector(".btn-fahrenheit");
 let celsiusLink = document.getElementById("celsius-link");
 let fahrenheitLink = document.getElementById("fahrenheit-link");
+let activeButton = document.querySelector(".btn.active");
 
 function displayFahrenheitTemperature(event) {
   event.preventDefault();
@@ -252,7 +253,8 @@ function displayFahrenheitTemperature(event) {
   fahrenheitButton.classList.add("active");
   celsiusButton.classList.remove("active");
   let temperatureElement = document.getElementById("current-temp");
-  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  let fahrenheitTemperature =
+    (parseFloat(temperatureElement.innerHTML) * 9) / 5 + 32;
   temperatureElement.innerHTML = `${Math.round(fahrenheitTemperature)}°`;
   updateWeatherInfo(currentWeatherData, "fahrenheit");
 }
@@ -264,8 +266,16 @@ function displayCelsiusTemperature(event) {
   celsiusButton.classList.add("active");
   fahrenheitButton.classList.remove("active");
   let temperatureElement = document.getElementById("current-temp");
+  let celsiusTemperature =
+    ((parseFloat(temperatureElement.innerHTML) - 32) * 5) / 9;
   temperatureElement.innerHTML = `${Math.round(celsiusTemperature)}°C`;
   updateWeatherInfo(currentWeatherData, "celsius");
+}
+
+if (activeButton === celsiusButton) {
+  displayCelsiusTemperature(new Event("click"));
+} else {
+  displayFahrenheitTemperature(new Event("click"));
 }
 
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
