@@ -1,5 +1,5 @@
 let searchForm = document.getElementById("searchForm");
-let searchButton = document.getElementById("#search-button");
+let searchButton = document.querySelector(".search-button");
 let searchTextInput = document.querySelector("#search-text-input");
 let currentTemp = document.querySelector("#current-temp");
 let currentDate = document.getElementById("current-date");
@@ -160,13 +160,58 @@ function updateWeatherInfo(data, temperatureUnit) {
 let latitude, longitude;
 
 function getLocationWeather(latitude, longitude) {
-  let API_URL = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`;
+  let currentWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`;
+  let forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`;
+
   axios
-    .get(API_URL)
-    .then((response) => {
-      const data = response.data;
-      currentWeatherData = data;
-      updateWeatherInfo(data);
+    .all([axios.get(currentWeatherUrl), axios.get(forecastUrl)])
+    .then((responses) => {
+      const currentWeatherData = responses[0].data;
+      const forecastData = responses[1].data;
+
+      updateWeatherInfo(currentWeatherData);
+
+      let forecastList = forecastData.list;
+      let forecastHTML = "";
+
+      for (let i = 0; i < forecastList.length; i += 8) {
+        let forecastData = forecastList[i];
+        let temperature = forecastData.main.temp;
+        let description = forecastData.weather[0].description;
+        let date = new Date(forecastData.dt * 1000).toLocaleDateString(
+          "en-US",
+          {
+            weekday: "long",
+            day: "numeric",
+            month: "2-digit",
+          }
+        );
+        let high = Math.round((temperature * 9) / 5 + 32) + "°F";
+        let low = Math.round(temperature) + "°C";
+
+        forecastHTML += `
+          <div class="list">
+            <div class="weather-icons">
+              <img src="icons/${forecastData.weather[0].icon}.svg" id="weather-icon" width="70px" />
+            </div>
+            <div class="content">
+              <h4 class="date">
+                <span class="dow-date">${date}</span>
+              </h4>
+              <p>${description}</p>
+              <div class="daily-temp-wrapper">
+                <div class="daily-temp">
+                  <span class="high">${high}</span>
+                  <span class="low">| ${low}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      let dailyWrapper = document.querySelector(".daily-wrapper-col");
+      dailyWrapper.innerHTML = forecastHTML;
     })
     .catch((error) => {
       console.log(error);
