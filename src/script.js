@@ -76,12 +76,17 @@ function getWeatherData(city) {
       let forecastList = response.data.list;
       let forecastHTML = "";
 
+      let tomorrow = new Date(new Date().setHours(0, 0, 0, 0));
+      tomorrow.setDate(tomorrow.getDate() + 1);
       let tomorrowIndex = forecastList.findIndex((forecastData) => {
         let date = new Date(forecastData.dt * 1000);
-        return date.getDate() !== new Date().getDate();
+        return date >= tomorrow;
       });
 
-      for (let i = tomorrowIndex; i < forecastList.length; i += 8) {
+      for (let i = tomorrowIndex; i < tomorrowIndex + 5 * 8; i += 8) {
+        if (i >= forecastList.length) {
+          break;
+        }
         let forecastData = forecastList[i];
         let temperature = forecastData.main.temp;
         let description = forecastData.weather[0].description;
