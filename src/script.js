@@ -123,7 +123,7 @@ function getWeatherData(city) {
       }
 
       let dailyWrapper = document.querySelector(".daily-wrapper-col");
-      dailyWrapper.innerHTML = forecastHTML; // replace the content of .daily-wrapper-col with forecastHTML
+      dailyWrapper.innerHTML = forecastHTML;
     });
 }
 
