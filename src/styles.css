@@ -2,7 +2,9 @@ body {
   background-image: url(../image/6298353.jpg);
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   font-family: Manrope;
+  min-height: 100vh;
 }
 
 #searchForm {
@@ -335,176 +337,37 @@ footer {
   width: 100%;
 }
 
-
-/* For desktop screens */
-@media (min-width: 1205px) {
-  #searchForm {
-    padding-top: 60px;
-    margin: 20px 20px;
-    padding-left: 60px;
-    width: 50%;
-  }
-
-  #searchForm input {
-    margin-top: 64px;
-    width: 70%;
-  }
-
-  .btn-outline-secondary {
-    margin-top: 65px;
-  }
-
-  .location-button {
-    margin-top: -13px;
-    margin-left: 550px;
-  }
-
-  .container .main-wrapper {
-    width: 130%;
-  }
-
-  .current-wrapper-col {
-    left: 10%;
-    height: 330px;
-    width: 550px;
-  }
-
-  .Temp-info-box .temp-info {
-    margin-top: -120px;
-    margin-left: -45px;
-    width: 250px;
-    height: 120px;
-  }
-
-  .todays-info-box .date-time {
-    margin-top: 30px;
-    margin-left: 230px;
-    width: 250px;
-    height: 120px;
-  }
-
-  .date-time {
-    margin-top: -60px;
-    margin-left: -50px;
-  }
+@media screen and (max-width: 480px) {
 }
-
-/* For tablet/ipad screens */
-@media screen and (min-width: 481px) and (max-width: 1024px)  {
-  #searchForm {
-    padding-top: 60px;
-    margin: 20px 20px;
-    padding-left: 60px;
-    width: 70%;
-  }
-
-  #searchForm input {
-    margin-top: 64px;
-    width: 60%;
-  }
-
-  .btn-outline-secondary {
-    margin-top: 65px;
-  }
-
-  .location-button {
-    margin-top: -13px;
-    margin-left: 450px;
-  }
-
-  .container .main-wrapper {
-    width: 130%;
-  }
-
-  .current-wrapper-col {
-    left: 10%;
-    height: 330px;
-    width: 500px;
-  }
-
-  .Temp-info-box .temp-info {
-    margin-top: -120px;
-    margin-left: -45px;
-    width: 250px;
-    height: 120px;
-  }
-
-  .todays-info-box .date-time {
-    margin-top: 30px;
-    margin-left: 210px;
-    width: 250px;
-    height: 120px;
-  }
-
-  .date-time {
-    margin-top: -60px;
-    margin-left: -50px;
-  }
-}
-
-/* For phone screens */
-@media screen and (max-width: 480px)  {
-  #searchForm {
-    padding-top: 20px;
-    margin: 20px 20px;
-    padding-left: 20px;
-    width: 100%;
-  }
-
-  #searchForm input {
-    margin-top: 20px;
-    width: 70%;
-    font-size: 16px;
-  }
-
-  .btn-outline-secondary {
-    margin-top: 20px;
-  }
-
-  .location-button {
-    margin-top: -13px;
-    margin-left: 240px;
-    font-size: 14px;
-    padding: 8px 10px;
-  }
-
-  .container .main-wrapper {
-    width: 100%;
-  }
-
-  .current-wrapper-col {
-    left: 0%;
-    height: 330px;
-    width: 100%;
-  }
-
-  .Temp-info-box .temp-info {
-   
-
-
 
 // This query targets smartphones in portrait orientation.
-}@media (max-width: 767px) {
-
+@media (max-width: 767px) {
+  body {
+    background-size: contain;
+    background-position: center;
+  }
 }
-
 
 // This query targets smartphones in landscape orientation and small tablets.
 @media (min-width: 768px) and (max-width: 991px) {
-
-
-
+  body {
+    background-size: auto 100%;
+    background-position: center;
+  }
 }
 
 // This query targets larger tablets and small laptops.
 @media (min-width: 992px) and (max-width: 1199px) {
-
-
+  body {
+    background-size: auto 100%;
+    background-position: center top;
+  }
 }
 
 // This query targets desktop and larger devices.
-@media (min-width: 1200px): {
-
-
+@media (min-width: 1200px) : {
+  body {
+    background-size: contain;
+    background-position: center;
+  }
 }
-
