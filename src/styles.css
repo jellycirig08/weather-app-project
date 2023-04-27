@@ -480,3 +480,31 @@ footer {
 
   .Temp-info-box .temp-info {
    
+
+
+
+// This query targets smartphones in portrait orientation.
+}@media (max-width: 767px) {
+
+}
+
+
+// This query targets smartphones in landscape orientation and small tablets.
+@media (min-width: 768px) and (max-width: 991px) {
+
+
+
+}
+
+// This query targets larger tablets and small laptops.
+@media (min-width: 992px) and (max-width: 1199px) {
+
+
+}
+
+// This query targets desktop and larger devices.
+@media (min-width: 1200px): {
+
+
+}
+
