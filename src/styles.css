@@ -388,7 +388,7 @@ footer {
 
   .container .main-wrapper {
     height: 2000px;
-    width: 510px;
+    width: 530px;
     padding: 20px;
     padding-bottom: 30px;
   }
@@ -396,7 +396,7 @@ footer {
   .current-wrapper-col {
     top: 50px;
     position: relative;
-    left: -5%;
+    left: 8%;
     height: 330px;
     width: 490px;
     padding: 20px;
@@ -405,16 +405,16 @@ footer {
   .h2 {
     position: absolute;
     margin-top: -200px;
-    margin-left: 150px;
+    margin-left: 60px;
     font-size: 80px;
     font-weight: bolder;
   }
 
   .Temp-info-box .temp-info {
-    width: 200px;
+    width: 170px;
     height: 120px;
     margin-top: -120px;
-    margin-left: -45px;
+    margin-left: 70px;
     display: flex;
     justify-content: space-between;
     gap: 3px;
@@ -422,10 +422,10 @@ footer {
   }
 
   .todays-info-box .date-time {
-    width: 200px;
+    width: 170px;
     height: 120px;
     margin-top: 30px;
-    margin-left: 230px;
+    margin-left: 250px;
     display: flex;
     justify-content: space-between;
     gap: 3px;
@@ -435,7 +435,7 @@ footer {
   .daily-wrapper-col {
     top: 230px;
     left: -20px;
-    width: 500px;
+    width: 480px;
     height: 590px;
     position: relative;
     z-index: 10;
