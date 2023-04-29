@@ -347,9 +347,9 @@ footer {
   #searchForm {
     padding-top: 680px;
     margin: 20px 20px;
-    padding-left: 10px;
+    padding-left: 110px;
     background: transparent;
-    width: 95%;
+    width: 600px;
     height: 40px;
     display: flex;
     align-items: center;
@@ -360,7 +360,7 @@ footer {
     margin-top: 64px;
     width: 120%;
     padding: 8px 8px;
-    padding-left: 28px;
+    padding-left: 48px;
   }
 
   .btn-outline-secondary {
@@ -368,14 +368,14 @@ footer {
     padding: 12px;
     left: -50px;
     border: none;
-    margin-right: 15px;
+    margin-right: 80px;
     margin-top: 65px;
   }
 
   .location-button {
     display: inline-block;
     margin-top: -13px;
-    margin-left: 350px;
+    margin-left: 500px;
   }
 
   .container {
@@ -388,7 +388,7 @@ footer {
 
   .container .main-wrapper {
     height: 2000px;
-    width: 530px;
+    width: 650px;
     padding: 20px;
     padding-bottom: 30px;
   }
@@ -396,16 +396,16 @@ footer {
   .current-wrapper-col {
     top: 50px;
     position: relative;
-    left: 8%;
+    left: 20%;
     height: 330px;
     width: 490px;
     padding: 20px;
   }
 
-  .h2 {
+  #current-temp {
     position: absolute;
     margin-top: -200px;
-    margin-left: 60px;
+    margin-left: 300px;
     font-size: 80px;
     font-weight: bolder;
   }
@@ -434,7 +434,7 @@ footer {
 
   .daily-wrapper-col {
     top: 230px;
-    left: -20px;
+    left: 120px;
     width: 480px;
     height: 590px;
     position: relative;
@@ -672,6 +672,20 @@ footer {
 
   .container .main-wrapper {
     height: 600px;
+    width: 530px;
+    padding: 20px;
+    padding-bottom: 30px;
+  }
+}
+
+@media only screen and (min-width: 2560px) and (orientation: portrait) {
+  body {
+    background-size: contain;
+    background-position: center;
+  }
+
+  .container .main-wrapper {
+    height: 100%;
     width: 530px;
     padding: 20px;
     padding-bottom: 30px;
