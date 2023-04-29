@@ -664,6 +664,7 @@ footer {
     flex-direction: column;
   }
 }
+
 @media only screen and (min-width: 1440px) and (orientation: portrait) {
   body {
     background-size: contain;
@@ -671,10 +672,22 @@ footer {
   }
 
   .container .main-wrapper {
-    height: 600px;
+    height: 190vh;
     width: 530px;
     padding: 20px;
     padding-bottom: 30px;
+  }
+
+  .daily-wrapper-col {
+    top: 230px;
+    left: 200px;
+    width: 500px;
+    height: 590px;
+    position: relative;
+    z-index: 10;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
   }
 }
 
