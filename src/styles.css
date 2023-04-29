@@ -595,11 +595,11 @@ footer {
   }
 
   #searchForm {
-    padding-top: 330px;
+    padding-top: 280px;
     margin: 20px 20px;
-    padding-left: 90px;
+    padding-left: 160px;
     background: transparent;
-    width: 80%;
+    width: 75%;
     height: 40px;
     display: flex;
     align-items: center;
@@ -618,15 +618,15 @@ footer {
   .location-button {
     display: inline-block;
     margin-top: -95px;
-    margin-left: 730px;
+    margin-left: 680px;
   }
 
   .current-wrapper-col {
     top: 70px;
     position: relative;
-    left: 90px;
+    left: 150px;
     height: 330px;
-    width: 650px;
+    width: 600px;
     padding: 20px;
   }
 
@@ -634,7 +634,7 @@ footer {
     width: 250px;
     height: 120px;
     margin-top: -120px;
-    margin-left: -45px;
+    margin-left: -25px;
     display: flex;
     justify-content: space-between;
     gap: 3px;
@@ -645,7 +645,7 @@ footer {
     width: 250px;
     height: 120px;
     margin-top: 30px;
-    margin-left: 230px;
+    margin-left: 250px;
     display: flex;
     justify-content: space-between;
     gap: 3px;
@@ -653,8 +653,8 @@ footer {
   }
 
   .daily-wrapper-col {
-    top: 270px;
-    left: 80px;
+    top: 250px;
+    left: 200px;
     width: 500px;
     height: 590px;
     position: relative;
