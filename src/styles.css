@@ -104,7 +104,6 @@ body {
 .col-md-6 {
   flex: 0 0 auto;
   width: 80%;
-  border: saddlebrown;
 }
 
 .current-wrapper-col {
@@ -377,6 +376,60 @@ footer {
     display: inline-block;
     margin-top: -13px;
     margin-left: 350px;
+  }
+
+  .main-wrapper {
+    height: 250px;
+    width: 230px;
+    margin-top: 30px;
+  }
+
+  .daily-wrapper-col {
+    top: 280px;
+    left: 40px;
+    width: 500px;
+    height: 590px;
+    position: relative;
+    z-index: 10;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .daily-wrapper-col .list {
+    position: relative;
+    display: flex;
+    padding: 10px 0;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: 0.5s;
+    flex: 1;
+    margin-top: 4px;
+  }
+
+  .weather-icons {
+    margin-left: 340px;
+  }
+
+  .content {
+    line-height: 10px;
+    margin-top: 70px;
+    margin-left: -390px;
+  }
+
+  .date {
+    margin-left: 2px;
+    font-size: 18px;
+    font-weight: bolder;
+    color: #039995;
+  }
+
+  .p {
+    color: black;
+    font-weight: bolder;
+    font-size: 15px;
   }
 }
 
