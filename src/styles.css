@@ -438,6 +438,33 @@ footer {
     background-size: auto 100%;
     background-position: center top;
   }
+
+  #searchForm {
+    padding-top: 60px;
+    margin: 20px 20px;
+    padding-left: 50px;
+    background: transparent;
+    width: 80%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .btn-outline-secondary {
+    display: inline-block;
+    padding: 12px;
+    left: -100px;
+    border: none;
+    margin-right: 15px;
+    margin-top: 65px;
+  }
+
+  .location-button {
+    display: inline-block;
+    margin-top: -13px;
+    margin-left: 600px;
+  }
 }
 
 @media only screen and (min-width: 1024px) and (orientation: portrait) {
