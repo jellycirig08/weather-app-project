@@ -345,7 +345,7 @@ footer {
   }
 
   #searchForm {
-    padding-top: 60px;
+    padding-top: 680px;
     margin: 20px 20px;
     padding-left: 10px;
     background: transparent;
@@ -378,15 +378,63 @@ footer {
     margin-left: 350px;
   }
 
-  .main-wrapper {
-    height: 250px;
-    width: 230px;
+  .container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .container .main-wrapper {
+    height: 2000px;
+    width: 510px;
+    padding: 20px;
+    padding-bottom: 30px;
+  }
+
+  .current-wrapper-col {
+    top: 50px;
+    position: relative;
+    left: -5%;
+    height: 330px;
+    width: 490px;
+    padding: 20px;
+  }
+
+  .h2 {
+    position: absolute;
+    margin-top: -200px;
+    margin-left: 150px;
+    font-size: 80px;
+    font-weight: bolder;
+  }
+
+  .Temp-info-box .temp-info {
+    width: 200px;
+    height: 120px;
+    margin-top: -120px;
+    margin-left: -45px;
+    display: flex;
+    justify-content: space-between;
+    gap: 3px;
+    padding: 30px 30px;
+  }
+
+  .todays-info-box .date-time {
+    width: 200px;
+    height: 120px;
     margin-top: 30px;
+    margin-left: 230px;
+    display: flex;
+    justify-content: space-between;
+    gap: 3px;
+    padding: 30px 30px;
   }
 
   .daily-wrapper-col {
-    top: 280px;
-    left: 40px;
+    top: 230px;
+    left: -20px;
     width: 500px;
     height: 590px;
     position: relative;
@@ -448,8 +496,8 @@ footer {
   }
 
   .container .main-wrapper {
-    height: 165vh;
-    width: 130%;
+    height: 200px;
+    width: 100px;
     padding: 20px;
     padding-bottom: 30px;
   }
@@ -492,7 +540,7 @@ footer {
 
   .daily-wrapper-col {
     top: 270px;
-    left: 80px;
+    left: -30px;
     width: 500px;
     height: 590px;
     position: relative;
@@ -507,6 +555,21 @@ footer {
   body {
     background-size: auto 100%;
     background-position: center top;
+  }
+
+  .container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .container .main-wrapper {
+    height: 150vh;
+    width: 130%;
+    padding: 20px;
+    padding-bottom: 30px;
   }
 }
 @media only screen and (min-width: 1440px) and (orientation: portrait) {
