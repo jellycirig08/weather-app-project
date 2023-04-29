@@ -593,6 +593,76 @@ footer {
     padding: 20px;
     padding-bottom: 30px;
   }
+
+  #searchForm {
+    padding-top: 330px;
+    margin: 20px 20px;
+    padding-left: 90px;
+    background: transparent;
+    width: 80%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .btn-outline-secondary {
+    display: inline-block;
+    padding: 12px;
+    left: -5px;
+    border: none;
+    margin-right: 15px;
+    margin-top: 65px;
+  }
+
+  .location-button {
+    display: inline-block;
+    margin-top: -95px;
+    margin-left: 730px;
+  }
+
+  .current-wrapper-col {
+    top: 70px;
+    position: relative;
+    left: 90px;
+    height: 330px;
+    width: 650px;
+    padding: 20px;
+  }
+
+  .Temp-info-box .temp-info {
+    width: 250px;
+    height: 120px;
+    margin-top: -120px;
+    margin-left: -45px;
+    display: flex;
+    justify-content: space-between;
+    gap: 3px;
+    padding: 30px 30px;
+  }
+
+  .todays-info-box .date-time {
+    width: 250px;
+    height: 120px;
+    margin-top: 30px;
+    margin-left: 230px;
+    display: flex;
+    justify-content: space-between;
+    gap: 3px;
+    padding: 30px 30px;
+  }
+
+  .daily-wrapper-col {
+    top: 270px;
+    left: 80px;
+    width: 500px;
+    height: 590px;
+    position: relative;
+    z-index: 10;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+  }
 }
 @media only screen and (min-width: 1440px) and (orientation: portrait) {
   body {
@@ -601,7 +671,7 @@ footer {
   }
 
   .container .main-wrapper {
-    height: 400px;
+    height: 600px;
     width: 530px;
     padding: 20px;
     padding-bottom: 30px;
