@@ -638,6 +638,14 @@ footer {
     padding: 20px;
   }
 
+  #current-temp {
+    position: absolute;
+    margin-top: -200px;
+    margin-left: 360px;
+    font-size: 80px;
+    font-weight: bolder;
+  }
+
   .Temp-info-box .temp-info {
     width: 250px;
     height: 120px;
@@ -673,23 +681,23 @@ footer {
   }
 }
 
-@media only screen and (min-width: 1440px) and (orientation: portrait) {
+@media screen and (min-width: 1440px) and (orientation: landscape) {
   body {
-    background-size: contain;
+    background-size: cover;
     background-position: center;
   }
 
   .container .main-wrapper {
-    max-width: 50%;
-    height: 70%;
+    height: 780px;
+    width: 150%;
+    margin-top: 30px;
     padding: 20px;
     padding-bottom: 30px;
-    margin: 0 auto;
   }
 
   .daily-wrapper-col {
-    top: 240px;
-    left: 200px;
+    top: -380px;
+    left: 700px;
     width: 500px;
     height: 590px;
     position: relative;
@@ -700,7 +708,21 @@ footer {
   }
 }
 
-@media only screen and (min-width: 2560px) and (orientation: portrait) {
+@media screen and (min-width: 1920px) and (orientation: portrait) {
+  body {
+    background-size: contain;
+    background-position: center;
+  }
+
+  .container .main-wrapper {
+    height: 100%;
+    width: 530px;
+    padding: 20px;
+    padding-bottom: 30px;
+  }
+}
+
+ {
   body {
     background-size: contain;
     background-position: center;
