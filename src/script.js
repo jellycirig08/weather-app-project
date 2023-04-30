@@ -90,36 +90,44 @@ function getWeatherData(city) {
         let forecastData = forecastList[i];
         let temperature = forecastData.main.temp;
         let description = forecastData.weather[0].description;
-        let date = new Date(forecastData.dt * 1000).toLocaleDateString(
-          "en-US",
-          {
-            weekday: "long",
-            day: "numeric",
-            month: "2-digit",
-          }
+        let dateUTC = new Date(forecastData.dt * 1000);
+        let dateLocal = new Date(
+          dateUTC.getTime() - dateUTC.getTimezoneOffset() * 60000
         );
+        let date = dateLocal.toLocaleDateString("en-US", {
+          weekday: "long",
+          day: "numeric",
+          month: "2-digit",
+        });
+        let hourLocal = dateLocal.getHours();
+        let isDaytime = hourLocal >= 6 && hourLocal < 18;
+        let iconCode = forecastData.weather[0].icon;
+        if (!isDaytime) {
+          // if it's nighttime, use the icon with "n" suffix
+          iconCode = iconCode.replace("d", "n");
+        }
+        let iconUrl = `icons/${iconCode}.svg`;
         let high = Math.round((temperature * 9) / 5 + 32) + "°F";
         let low = Math.round(temperature) + "°C";
-
         forecastHTML += `
-          <div class="list">
-            <div class="weather-icons">
-              <img src="icons/${forecastData.weather[0].icon}.svg" id="weather-icon" width="70px" />
-            </div>
-            <div class="content">
-              <h4 class="date">
-                <span class="dow-date">${date}</span>
-              </h4>
-              <p>${description}</p>
-              <div class="daily-temp-wrapper">
-                <div class="daily-temp">
-                  <span class="high">${high}</span>
-                  <span class="low">| ${low}</span>
-                </div>
-              </div>
-            </div>
+    <div class="list">
+      <div class="weather-icons">
+        <img src="${iconUrl}" id="weather-icon" width="70px" />
+      </div>
+      <div class="content">
+        <h4 class="date">
+          <span class="dow-date">${date}</span>
+        </h4>
+        <p>${description}</p>
+        <div class="daily-temp-wrapper">
+          <div class="daily-temp">
+            <span class="high">${high}</span>
+            <span class="low">| ${low}</span>
           </div>
-        `;
+        </div>
+      </div>
+    </div>
+  `;
       }
 
       let dailyWrapper = document.querySelector(".daily-wrapper-col");
