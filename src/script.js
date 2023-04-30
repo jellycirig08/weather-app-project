@@ -103,7 +103,6 @@ function getWeatherData(city) {
         let isDaytime = hourLocal >= 6 && hourLocal < 18;
         let iconCode = forecastData.weather[0].icon;
         if (!isDaytime) {
-          // if it's nighttime, use the icon with "n" suffix
           iconCode = iconCode.replace("d", "n");
         }
         let iconUrl = `icons/${iconCode}.svg`;
