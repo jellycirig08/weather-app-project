@@ -243,7 +243,10 @@ function getLocation() {
 let locationButton = document.querySelector(".location-button");
 
 locationButton.removeEventListener("click", getLocation);
+locationButton.removeEventListener("touchend", getLocation);
+
 locationButton.addEventListener("click", getLocation);
+locationButton.addEventListener("touchend", getLocation);
 
 let celsiusButton = document.querySelector(".btn-celsius");
 let fahrenheitButton = document.querySelector(".btn-fahrenheit");
